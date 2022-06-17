@@ -1,0 +1,656 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
+html {
+    font-size: 62.5%; /* 1rem = 62.5% * 16px = 10px */
+    scroll-behavior: smooth;
+}
+:root {
+    --primary-color:#6edae6;
+    --white-color:#fff;
+    --black-color:#000;
+}
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    font-family: 'Work Sans', sans-serif;
+    box-sizing: border-box;
+}
+.flexbox {
+    display: flex;
+}
+.center {
+    justify-content: center;
+    align-items: center;
+}
+.col {
+    flex-direction: column;
+}
+/* COMMON STYLES */
+
+/* COMMON STYLES */
+/* SECTION 1 */
+.section-1 {
+    width: 100%;
+    height: 100vh;
+    background-color: var(--primary-color);
+    clip-path: polygon(0 0 , 0 100% , 38% 100% , 100% 95% , 100% 0);
+    position: relative;
+    
+    justify-content: space-around;
+    align-items: center;
+}
+.logo {
+    position: absolute;
+    top:3rem;
+    left: 3rem;
+    
+}
+.logo i {
+    color:rgba(0,0,0,0.8);
+    font-size: 10rem;
+}
+.navbar {
+    display: flex;
+    position: absolute;
+    top:4rem;
+    right: 18rem;
+    
+}
+.nav-link {
+    font-size: 2rem;
+    color:var(--black-color);
+    margin:0 4rem;
+    transition: transform 0.5s;
+}
+.nav-link:hover {
+    transform: scale(1.6);
+}
+.cube-wrapper {
+    perspective: 100rem;
+}
+.cube {
+    width: 30rem;
+    height: 55rem;
+    transform: rotateY(20deg);
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+}
+.cube > div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #fee;
+    transform-style: preserve-3d;
+    box-shadow: inset 0.1rem 0.1rem 0.2rem #ddd ,inset -0.1rem -0.1rem 0.2rem #ddd ;
+}
+.front-face {
+    transform: translateZ(5rem);
+    
+}
+.front-face img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    
+}
+.front-face::before , .front-face::after {
+    content:'';
+    background-color: #fee;
+    
+    box-shadow: inset 0.1rem 0.1rem 0.2rem #ddd ,inset -0.1rem -0.1rem 0.2rem #ddd ;
+    position:absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 10rem;
+}
+.front-face::before {
+    left: 0;
+    top:0;
+    transform: rotateX(-90deg);
+    transform-origin: top;
+}
+.front-face::after {
+    left: 0;
+    bottom:0;
+    transform: rotateX(90deg);
+    transform-origin: bottom;
+}
+.back-face {
+    transform: translateZ(-5rem);
+}
+.back-face i {
+    font-size: 10rem;
+    color:var(--primary-color);
+    transform: rotateY(180deg);
+    text-shadow: 0.1rem 0.1rem 0.2rem #aaa , -0.1rem -0.1rem 0.2rem #aaa ; ;
+}
+.back-face::before , .back-face::after {
+    content:'iPhone';
+    background-color: #fee;
+    color:#ec1919;
+    font-size: 2rem;
+    font-weight: 300;
+    position:absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 10rem;
+    box-shadow: inset 0.1rem 0.1rem 0.2rem #ddd ,inset -0.1rem -0.1rem 0.2rem #ddd ;
+}
+.back-face::before {
+    right: 0;
+    top:0;
+    transform: rotateY(90deg);
+    transform-origin: right;
+}
+.back-face::after {
+    left: 0;
+    top:0;
+    transform: rotateY(-90deg);
+    transform-origin: left;
+}
+
+.controls {
+    margin-top: 10rem;
+    width: 8rem;
+    height: 8rem;
+    background-color: rgba(0,0,0,0.9);
+    border:1rem solid rgba(0,0,0,0.8);
+    border-radius: 50%;
+    position: relative;
+}
+.controls a {
+    position: absolute;
+    
+}
+.controls a:nth-child(1) {
+    top:0%;
+    left:50%;
+    transform: translateX(-50%);
+}
+.controls a:nth-child(2) {
+    right:0%;
+    top:50%;
+    transform: translateY(-50%);
+}
+.controls a:nth-child(3) {
+    bottom:0%;
+    left:50%;
+    transform: translateX(-50%);
+}
+.controls a:nth-child(4) {
+    left:0%;
+    top:50%;
+    transform: translateY(-50%);
+}
+.controls a:nth-child(5) {
+    right:12%;
+    top:12%;
+    transform: rotate(45deg);
+}
+.controls a:nth-child(6) {
+    left:12%;
+    bottom:12%;
+    transform: rotate(45deg);
+}
+.controls i {
+    color:var(--primary-color);
+    opacity: 0.5;
+    transition: opacity 0.5s;
+    font-size: 1.5rem;
+}
+.controls a:hover i {
+    opacity: 1;
+}
+.main {
+    position: relative;
+    top:-10rem;
+    left:-10rem;
+}
+.main h1 {
+    text-transform: uppercase;
+    font-size: 12rem;
+    font-weight: 300;
+    letter-spacing: 0.5rem;
+    margin-bottom: 10rem;
+}
+.main p {
+    font-size: 4rem;
+    letter-spacing: 0.2rem;
+    margin-bottom: 3rem;
+}
+.main span {
+    font-size: 3rem;
+    letter-spacing: 0.2rem;
+    font-weight: 500;
+    margin-bottom: 5rem;
+}
+.main button {
+    background-color: var(--black-color);
+    color:var(--primary-color);
+    width: 20rem;
+    height: 8rem;
+    font-size: 2rem;
+    font-weight: 500;
+    border-radius: 1rem;
+    clip-path: polygon(
+    50% 0%,
+    81% 5%,
+    100% 0,
+    100% 100%,
+    80% 95%,
+    50% 100%,
+    20% 95%,
+    0 100%,
+    0 0,
+    23% 5%
+  );
+  transition: clip-path 0.5s;
+  cursor: pointer;
+}
+.main button:hover {
+    clip-path: polygon(
+    40% 15%,
+    77% 15%,
+    100% 10%,
+    100% 90%,
+    75% 85%,
+    40% 85%,
+    30% 100%,
+    0 50%,
+    0 50%,
+    30% 0
+  );
+}
+.slideshow {
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    
+    z-index: -1;
+}
+.slideshow div {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+    
+    opacity: 0;
+    transition: opacity 5s;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+}
+.slideshow div.show {
+    opacity: 1;
+}
+/* SECTION 1 */
+/* SECTION 2 */
+.section-2 {
+    width: 100%;
+    height: 120vh;
+    padding: 10vh 0;
+}
+.section-2-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.section-2-heading {
+    font-size: 10rem;
+    letter-spacing: 0.5rem;
+    font-weight: 200;
+    color:var(--black-color);
+    position: absolute;
+    top:0;
+    left:50%;
+    transform: translateX(-50%);
+}
+.section-2-heading::before {
+    content:'';
+    position: absolute;
+    top:0;
+    left:0;
+    width: 130%;
+    height: 30vw;
+    background:linear-gradient(var(--primary-color),var(--white-color));
+    z-index: -1;
+    transform: skewX(-50deg);
+    transform-origin: top;
+    border-radius: 1rem;
+}
+.iphones {
+    width: 50vw;
+    height: 60vh;
+    
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    background:linear-gradient(var(--primary-color),var(--white-color));
+    border-radius: 1rem;
+    
+}
+.iphones img {
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    object-fit: contain;
+    transition: opacity 3s;
+}
+.iphone-img-2 {
+    opacity:0;
+}
+.iphones:hover .iphone-img-2 {
+    opacity: 1;
+}
+.iphones:hover .iphone-img-1 {
+    opacity: 0;
+}
+.iphone-btns {
+    display: flex;
+    position: absolute;
+    bottom: 5rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.iphone-btns a {
+    width: 6rem;
+    height: 6rem;
+    margin: 0 3rem;
+    background:linear-gradient(to right , rgb(51,51,51) 60% ,rgb(82,82,82) );
+    border-radius: 50%;
+    position: relative;
+
+}
+.iphone-btns a::after {
+    content:'';
+    width: 50%;
+    height: 50%;
+    border: 0.1rem solid #6edae6;
+    position: absolute;
+    border-radius: 1rem;
+}
+.iphone-btns span {
+    width: max-content;
+    position: absolute;
+    top:-3rem;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    color:var(--primary-color);
+    transform: scale(0);
+    transition: transform 0.5s;
+}
+.iphone-btns a:hover span {
+    transform: scale(1);
+}
+/* SECTION 2 */
+/* SECTION 3 */
+.section-3 {
+    width: 100%;
+    height: 100%;
+    background-color: var(--black-color);
+    clip-path: polygon(68% 0, 100% 0, 100% 97%, 38% 100%, 0 100%, 0 3%);
+    padding: 15rem 0;
+    
+}
+.section-3-heading {
+    font-size: 10rem;
+    color:var(--primary-color);
+    font-weight: 200;
+    margin-bottom: 15rem;
+}
+.section-3-content {
+    width: 80%;
+    position: relative;
+    perspective: 1000rem;
+}
+.section-3-content img {
+    width: inherit;
+}
+.moving-screen {
+    transform: rotateX(-80deg);
+    transform-origin: bottom;
+    transition: transform 2s;
+}
+.change .moving-screen {
+    transform: rotateX(0);
+    transition: transform 3s;
+}
+.loading-wrapper {
+    position: absolute;
+    width:60%;
+    height: 87%;
+    left:50%;
+    top:3%;
+    transform: translateX(-50%);
+    background: linear-gradient(rgba(255,255,255,0.6),rgba(255,255,255,0.6)) , url('images/MacBook/macbook-1-desktop.png') center no-repeat;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 1s ;
+}
+.change .loading-wrapper {
+    opacity: 1;
+    transition: opacity 1s 2s;
+}
+.loading {
+    position: relative;
+    top:-9%;
+    width: 100%;
+    height: 120%;
+    background-color: var(--black-color);
+    opacity: 1;
+    
+}
+.change .loading {
+    opacity: 0;
+    transition: opacity 1s 5s;
+}
+.loading i {
+    color:var(--white-color);
+    font-size: 10rem;
+    margin-bottom: 3rem;
+    
+}
+.loading-bar {
+    width:22rem ;
+    height: 0.3rem;
+    border-radius: 5rem;
+    position: relative;
+    background-color: #888;
+}
+.loading-bar::after {
+    content:'';
+    width: 0;
+    height: 100%;
+    background-color: var(--white-color);
+    position: absolute;
+    left:0;
+    top:0;
+}
+.change .loading-bar::after {
+    width:100%;
+    transition: width 1s 3s;
+}
+.section-3-info {
+    position: absolute;
+    width:100%;
+    height: 100%;
+    
+    opacity: 0;
+}
+.change .section-3-info {
+    opacity: 1;
+    transition: opacity 1s 6s;
+}
+.section-3-info p {
+    font-size: 6rem;
+    color:var(--primary-color);
+    margin-bottom: 3rem;
+
+}
+.section-3-info span {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    font-weight:200;
+}
+.section-3-info button {
+    background:linear-gradient(#ddd,#fff);
+    color:var(--primary-color);
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 0.2rem;
+    width: 25rem;
+    height: 5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0.1rem 0.1rem 0.2rem #ddd , -0.1rem -0.1rem 0.2rem #ddd;
+}
+/* SECTION 3 */
+/* SECTION 4 */
+.section-4 {
+    
+    height: 140vh;
+    padding: 20vh 0;
+    position: relative;
+}
+.watches-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.watches-container > div {
+    position: absolute;
+    transition: transform 1s;
+}
+
+.case-img , .band-img {
+    width: 35rem;
+    height: 35rem;
+    object-fit: contain;
+}
+.move-arrow {
+    width: 4rem;
+    height: 4rem;
+    background-color:rgba(221,221,221,0.4) ;
+    border-radius: 50%;
+    position: absolute;
+}
+.move-arrow i {
+    font-size: 3rem;
+    color:var(--primary-color);
+}
+.watch-up {
+    left:50%;
+    transform: translateX(-50%);
+    top:22vh;
+}
+.watch-right {
+    top:50%;
+    transform: translateY(-50%);
+    right:2rem;
+}
+.watch-down {
+    left:50%;
+    transform: translateX(-50%);
+    bottom:20vh;
+}
+.watch-left {
+    top:50%;
+    transform: translateY(-50%);
+    left:2rem;
+}
+.hide {
+    display: none;
+    visibility: hidden;
+}
+.section-4 button {
+    position: absolute;
+    bottom:30vh;
+    right:35%;
+    background-color: var(--black-color);
+    color: var(--primary-color);
+    font-size: 1.6rem;
+    border-radius: 4rem;
+    width: 13rem;
+    height: 5rem;
+    border: 0.1rem dashed var(--white-color);
+    font-weight: 200;
+    cursor: pointer;
+}
+/* SECTION 4 */
+/* SECTION 5 */
+.section-5 {
+    width: 100%;
+    height: 100vh;
+    
+}
+.airpods {
+    width: 90%;
+    height: 80%;
+    position: relative;
+}
+.airpods h1 {
+    position: absolute;
+    top:0;
+    font-size: 15rem;
+    font-weight: 300;
+    
+    color:var(--white-color);
+    text-shadow: 0.1rem 0.1rem 0 #999;
+}
+.airpods-btns {
+    position: absolute;
+    margin-top: 15rem;
+}
+.airpods-btns button {
+    margin: 0 3rem;
+    width: 15rem;
+    height: 4rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+.airpods-btns button:nth-child(1) {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+.airpods-btns button:nth-child(2) {
+    background-color: var(--white-color);
+    color: var(--primary-color);
+}
+.airpods img {
+    height: 100%;
+    width: 50%;
+    object-fit: contain;
+}
+.airpods-img-2 {
+    background-color: var(--primary-color);
+}
+/* SECTION 5 */
+footer {
+    width: 100%;
+    height: 40vh;
+    position: relative;
+    font-size: 2rem;
+}
+.icon-link {
+    margin: 0 7rem;
+}
+.icon-link img {
+    width: 10rem;
+}
+.copyright {
+    position: absolute;
+    bottom:5rem;
+}
+/*FOOTER */
